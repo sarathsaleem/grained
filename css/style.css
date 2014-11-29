@@ -1,0 +1,119 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(OpenSans.woff) format('woff');
+}
+body,
+html {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Open Sans", sans-serif;
+    height: 100%;
+}
+#container {
+    z-index: 1;
+    /*chrome bug to clip ::after http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti FF9B07*/
+}
+.wrapper {
+    height: 100% !important;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.page1 {
+    background: #FFC003;
+}
+.page2 {
+    background: #ffac00;
+}
+.page3 {
+    background: #7e4b00;
+}
+.page_container {
+    padding: 5%;
+}
+h1 {
+    color: #000;
+    margin: 30px 0;
+    font-size: 26px;
+    padding: 0px;
+}
+h2 {
+    color: #1a1a1a;
+    margin: 0;
+    font-size: 20px;
+    padding: 0px;
+}
+p {
+    padding: 5px 0;
+    margin: 0;
+}
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+ul{
+    clear: both;
+    display: block;
+}
+.patterns li {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #fff;
+    margin: 5px;
+    display: inline-block;
+}
+.patterns::after{
+    content: '';
+    clear: both;
+}
+.generate{
+    margin: 30px 0;
+}
+.generate-btn {
+    
+    font-weight: bold;
+    padding: 20px;
+	box-shadow:inset 0px 1px 0px 0px #d197fe;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a53df6), color-stop(1, #7c16cb) );
+	background:-moz-linear-gradient( center top, #a53df6 5%, #7c16cb 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a53df6', endColorstr='#7c16cb');
+	background-color:#a53df6;	
+	border-radius:6px;
+	border:1px solid #9c33ed;
+	color:#ffffff;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #7d15cd;
+}
+.generate-btn:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7c16cb), color-stop(1, #a53df6) );
+	background:-moz-linear-gradient( center top, #7c16cb 5%, #a53df6 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c16cb', endColorstr='#a53df6');
+	background-color:#7c16cb;
+}
+.generate-btn:active {
+	position:relative;
+	top:1px;
+}
+.page_container{
+    position: relative;
+}
+
+#customGraindent {
+    width: 300px;
+    height: 300px;
+    background: #ccc;
+    float: left;
+    margin: 0 20px;
+}
+.dg.main{
+ float: left;
+}
+
+.customGraindent > * {
+    position: relative;
+}
