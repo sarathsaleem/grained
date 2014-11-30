@@ -74,30 +74,30 @@ ul{
     margin: 30px 0;
 }
 .generate-btn {
-    
+
     font-weight: bold;
     padding: 20px;
-	box-shadow:inset 0px 1px 0px 0px #d197fe;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a53df6), color-stop(1, #7c16cb) );
-	background:-moz-linear-gradient( center top, #a53df6 5%, #7c16cb 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a53df6', endColorstr='#7c16cb');
-	background-color:#a53df6;	
-	border-radius:6px;
-	border:1px solid #9c33ed;
-	color:#ffffff;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #7d15cd;
+    box-shadow:inset 0px 1px 0px 0px #d197fe;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #a53df6), color-stop(1, #7c16cb) );
+    background:-moz-linear-gradient( center top, #a53df6 5%, #7c16cb 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#a53df6', endColorstr='#7c16cb');
+    background-color:#a53df6;
+    border-radius:6px;
+    border:1px solid #9c33ed;
+    color:#ffffff;
+    text-decoration:none;
+    text-align:center;
+    text-shadow:1px 1px 0px #7d15cd;
 }
 .generate-btn:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7c16cb), color-stop(1, #a53df6) );
-	background:-moz-linear-gradient( center top, #7c16cb 5%, #a53df6 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c16cb', endColorstr='#a53df6');
-	background-color:#7c16cb;
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #7c16cb), color-stop(1, #a53df6) );
+    background:-moz-linear-gradient( center top, #7c16cb 5%, #a53df6 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c16cb', endColorstr='#a53df6');
+    background-color:#7c16cb;
 }
 .generate-btn:active {
-	position:relative;
-	top:1px;
+    position:relative;
+    top:1px;
 }
 .page_container{
     position: relative;
@@ -114,6 +114,6 @@ ul{
  float: left;
 }
 
-.customGraindent > * {
+#customGraindent > * {
     position: relative;
 }

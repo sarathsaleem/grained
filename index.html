@@ -8,10 +8,12 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href='css/onepage-scroll.css' rel='stylesheet' type='text/css'>
+    <link href='css/bootstrap-colorpicker.min.css' rel='stylesheet' type='text/css'>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <script src="js/jquery.js"></script>
     <script src="js/dat.gui.min.js"></script>
     <script type="text/javascript" src="js/jquery.onepage-scroll.js"></script>
+    <script type="text/javascript" src="js/bootstrap-colorpicker.min.js"></script>
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
 </head>
 
@@ -21,7 +23,7 @@
 
             <section id="page1" class="page1">
                 <div class="page_container">
-                    <h1>Add grain texture effect to your content.</h1> 
+                    <h1>Add grain texture effect to your content.</h1>
                     <h2>With Grained.js you can add customized noise effect on your web page. It has easily customizable options to generate the grain noise effect.</h2>
                     <p>The animation is added using CSS3 key-frame animation and instantly generated png noise image.</p>
                     <ul class="patterns">
@@ -42,18 +44,18 @@
                 <div class="page_container">
                     <h1>Create your own texture</h1>
                     <div class="custom-gen">
-                        
+
                         <div id="customGraindent">
-                            
+                            <a href="#" class="demo" id="demo_apidemo" data-color="rgb(255, 255, 255)">Change background color</a>
                         </div>
-                    
+
                     </div>
                 </div>
             </section>
 
             <section id="page3" class="page3">
                 <div class="page_container">
-                    <h1>Pretty Neat Eh?</h1> 
+                    <h1>Pretty Neat Eh?</h1>
                 </div>
             </section>
         </div>
@@ -77,7 +79,7 @@
                 grainWidth: 1,
                 grainHeight: 1
 
-            };           
+            };
             var options3 = {
                 animate: true, //default true
                 patternWidth: 100,
@@ -88,7 +90,7 @@
                 grainHeight: 1
 
             };
-            
+
             var custOption = {
                 animate: true, //default true
                 patternWidth: 100,
@@ -96,15 +98,13 @@
                 grainOpacity: 0.05,
                 grainDensity: 1,
                 grainWidth: 1,
-                grainHeight: 1,
-                color : '#d9cf33'
-
+                grainHeight: 1
             };
-            
-            grained(element, options);                
+
+            grained(element, options);
             grained("#page3", options3);
 
-            function addGrain() {                
+            function addGrain() {
                 grained("#customGraindent", custOption);
             }
             addGrain();
@@ -112,7 +112,7 @@
             var gui = new dat.GUI({
                 autoPlace: false
             });
-            
+
             var customize = gui.addFolder('Generate');
             customize.add(custOption, 'animate').onChange(addGrain);
             customize.add(custOption, 'patternWidth', 10, 500).onChange(addGrain);
@@ -122,11 +122,17 @@
             customize.add(custOption, 'grainWidth', 1, 10).onChange(addGrain);
             customize.add(custOption, 'grainHeight', 1, 10).onChange(addGrain);
             customize.open();
-            var ele = gui.addFolder('Background');
-             gui.addColor(custOption, 'color').onChange(function(){            
-                $('#customGraindent').css('background-color', custOption.color);
-            });
             $('.custom-gen')[0].appendChild(gui.domElement);
+
+                var bodyStyle = $('#customGraindent')[0].style;
+                $('#demo_apidemo').colorpicker({
+                    color: bodyStyle.backgroundColor,
+                    container :  $('#customGraindent')
+                }).on('changeColor', function(ev) {
+                    bodyStyle.backgroundColor = ev.color.toHex();
+                });
+
+
         });
     </script>
 </body>
