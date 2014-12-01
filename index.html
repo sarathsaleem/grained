@@ -44,97 +44,91 @@
                 <div class="page_container">
                     <h1>Create your own texture</h1>
                     <div class="custom-gen">
-
                         <div id="customGraindent">
                             <a href="#" class="demo" id="demo_apidemo" data-color="rgb(255, 255, 255)">Change background color</a>
                         </div>
-
+                    </div>
+                    <div class="getCode">
+                        <textarea readonly></textarea>
                     </div>
                 </div>
             </section>
 
             <section id="page3" class="page3">
                 <div class="page_container">
-                    <h1>Pretty Neat Eh?</h1>
+                    <div id="wmd-preview-section-1329" class="wmd-preview-section preview-content">
+                        <div class="sessionOne">
+                            <h2 id="how-to-use">How to use</h2>
+
+                            <p>Include the library file in your html page.</p>
+
+                            <pre class="prettyprint lang-html">&lt;script&nbsp;src="grained.js"&gt;&lt;/script&gt;</pre>
+
+                            <p>initialize the library by</p>
+
+                            <pre class="prettyprint">grained('elementId', options)</pre>
+
+                            <p>
+                                <em>
+                                    <code>'elementId'</code>
+                                </em>is the id of the container element to add the grain effect. It is important to note that grainedjs will not change the background of the container element. It appends a div element as the first child of the container. Grainedjs will add two style changes to the container element
+                                <em>
+                                    <code>'position:relative;overflow:hidden'.</code>
+                                </em>If the container position is absolute it will remand as absolute only.</p>
+
+                            <p>Since a
+                                <code>'div'</code>element with class
+                                <code>'grained'</code>is added as first child element with position absolute it will have the the z index priority and appears on top of other contents in the container element. If you want the other elements in container element on top of grained effect you have to add a css like</p>
+
+                            <p>
+                                <em>
+                                    <pre class="prettyprint">#container &gt; * { position:relative; }</pre>
+                                </em>
+                            </p>
+
+                            <p>So the ideal structure of implementaion is like follows</p>
+
+                            <pre class="prettyprint">&lt;div&nbsp;id="container"&gt;
+    &lt;div&nbsp;class="contents"&gt;
+        your contents goes here .. like &lt;a&gt;, &lt;p&gt; etc
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+                            <p>after initilizing
+                               <pre class="prettyprint">grained('#contaoner', {});</pre>it will look like this</p>
+
+                            <pre class="prettyprint">&lt;div&nbsp;id="container"&gt;
+    &lt;div&nbsp;class="grained"&gt;&lt;/div&gt;
+    &lt;div&nbsp;class="contents"&gt;
+        your contents goes here .. like &lt;a&gt;, &lt;p&gt; etc
+    &lt;/div&gt;
+&lt;/div&gt;</pre>
+
+                            <h2 id="options">Options</h2>
+
+                            <p>With these options you can crate customized grained effect , these are the option parameter you can change and the default values.</p>
+
+                            <pre class="prettyprint">var options = {
+         animate: true,
+         patternWidth: 100,
+         patternHeight: 100,
+         grainOpacity: 0.05,
+         grainDensity: 1,
+         grainWidth: 1,
+         grainHeight: 1
+ };</pre>
+
+                            <p>With animation true/false you can create textures with grain movement or a static one. The other value you can see the live in Create your own</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
         </div>
+        </section>
+    </div>
     </div>
     <script src="grained.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".main").onepage_scroll({
-                sectionContainer: "section",
-                responsiveFallback: 600,
-                loop: true
-            });
-
-            var element = '#page1';
-            var options = {
-                animate: true, //default true
-                patternWidth: 100,
-                patternHeight: 100,
-                grainOpacity: 0.05,
-                grainDensity: 1,
-                grainWidth: 1,
-                grainHeight: 1
-
-            };
-            var options3 = {
-                animate: true, //default true
-                patternWidth: 100,
-                patternHeight: 100,
-                grainOpacity: 0.05,
-                grainDensity: 1,
-                grainWidth: 1,
-                grainHeight: 1
-
-            };
-
-            var custOption = {
-                animate: true, //default true
-                patternWidth: 100,
-                patternHeight: 100,
-                grainOpacity: 0.05,
-                grainDensity: 1,
-                grainWidth: 1,
-                grainHeight: 1
-            };
-
-            grained(element, options);
-            grained("#page3", options3);
-
-            function addGrain() {
-                grained("#customGraindent", custOption);
-            }
-            addGrain();
-
-            var gui = new dat.GUI({
-                autoPlace: false
-            });
-
-            var customize = gui.addFolder('Generate');
-            customize.add(custOption, 'animate').onChange(addGrain);
-            customize.add(custOption, 'patternWidth', 10, 500).onChange(addGrain);
-            customize.add(custOption, 'patternHeight', 10, 500).onChange(addGrain);
-            customize.add(custOption, 'grainOpacity', 0.0, 1).onChange(addGrain);
-            customize.add(custOption, 'grainDensity', 1, 10).onChange(addGrain);
-            customize.add(custOption, 'grainWidth', 1, 10).onChange(addGrain);
-            customize.add(custOption, 'grainHeight', 1, 10).onChange(addGrain);
-            customize.open();
-            $('.custom-gen')[0].appendChild(gui.domElement);
-
-                var bodyStyle = $('#customGraindent')[0].style;
-                $('#demo_apidemo').colorpicker({
-                    color: bodyStyle.backgroundColor,
-                    container :  $('#customGraindent')
-                }).on('changeColor', function(ev) {
-                    bodyStyle.backgroundColor = ev.color.toHex();
-                });
-
-
-        });
-    </script>
+    <script src="js/demo.js"></script>
+    <script async src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sunburst&callback=heightCorrect"></script>
 </body>
 
 </html>

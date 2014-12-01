@@ -29,6 +29,8 @@ html {
 }
 .page3 {
     background: #7e4b00;
+    color: #fff;
+    font-size: 13px;
 }
 .page_container {
     padding: 5%;
@@ -99,7 +101,7 @@ ul{
     position:relative;
     top:1px;
 }
-.page_container{
+.page_container {
     position: relative;
 }
 
@@ -110,10 +112,73 @@ ul{
     float: left;
     margin: 0 20px;
 }
-.dg.main{
- float: left;
+.dg.main {
+    float: left;
 }
 
 #customGraindent > * {
     position: relative;
+}
+
+#customGraindent a {
+    color: #fff;
+    font-size: 13px;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #000;
+}
+.colorpicker {
+    width: 130px;
+}
+.sessionOne h2 {
+    color: #FFAC00;
+    margin: 20px 0;
+}
+.sessionOne pre.prettyprint {
+    width: 400px;
+    margin: 0px;
+}
+.sessionOne pre{
+    background: #000;
+}
+.sessionOne {
+    overflow-y: scroll;
+    box-shadow: inset 0px -8px 20px #744501;
+    padding: 10px;
+    max-width: 900px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: #673E01;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #673E01;
+}
+.custom-gen {
+    background:#cf8900;
+    height: 300px;
+    padding: 20px;
+    width: 603px;
+    float: left;
+}
+.getCode {
+    float: left;
+    width: 300px;
+    height: 300px;
+    background: #ccc;
+    padding: 20px;
+}
+
+.getCode textarea {
+    height: 282px;
+    width: 295px;
+    resize: none;
 }
