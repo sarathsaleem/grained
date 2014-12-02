@@ -45,13 +45,14 @@ $(document).ready(function () {
 
         grained("#customGraindent", custOption);
 
-        Object.keys(custOption).forEach(function(key){
+        Object.keys(custOption).forEach(function (key) {
             if (typeof custOption[key] === 'number') {
                 custOption[key] = +custOption[key].toFixed(2);
             }
         });
 
-        var text = 'var options = '+ JSON.stringify(custOption, null, 2);
+        var text = 'var options = ' + JSON.stringify(custOption, null, 2);
+        text += '\ngrained("#elemntId", options);\n\n/*\nbackground-color :' + $("#customGraindent").css('backgroundColor') + '\n*/';
         $('.getCode textarea').text(text);
     }
     addGrain();
@@ -77,7 +78,10 @@ $(document).ready(function () {
         container: $('#customGraindent')
     }).on('changeColor', function (ev) {
         bodyStyle.backgroundColor = ev.color.toHex();
+        addGrain();
     });
+
+    demos();
 
 });
 
@@ -93,6 +97,48 @@ if (window.exports) {
 
 function demos() {
 
+
+    var options = {
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.61,
+        "grainDensity": 1.99,
+        "grainWidth": 2.39,
+        "grainHeight": 2.49
+    }
+    grained("#tv", options);
+
+    options = {
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.12,
+        "grainDensity": 1.99,
+        "grainWidth": 1.79,
+        "grainHeight": 3.28
+    }
+    grained("#grass", options);
+    options = {
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.18,
+        "grainDensity": 2.49,
+        "grainWidth": 2.69,
+        "grainHeight": 2.19
+    }
+    grained("#wood", options);
+    options = {
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.03,
+        "grainDensity": 2.09,
+        "grainWidth": 7.85,
+        "grainHeight": 5.07
+    }
+    grained("#filim", options);
 
 
 }

@@ -41,8 +41,8 @@ grained
             grainDensity: 1,
             grainWidth: 1,
             grainHeight: 1,
-            grainChaos: 5,
-            grainSpeed: 10
+            grainChaos: 0.5,
+            grainSpeed: 20
 
         };
 
@@ -121,8 +121,8 @@ grained
             while (pre--) {
                 rule += prefixes[pre] + 'animation-name:grained;';
                 rule += prefixes[pre] + 'animation-iteration-count: infinite;';
-                rule += prefixes[pre] + 'animation-duration: ' + Math.round(options.grainChaos) + 's;';
-                rule += prefixes[pre] + 'animation-timing-function: steps(' + Math.round(options.grainSpeed) + ', end);';
+                rule += prefixes[pre] + 'animation-duration: ' + options.grainChaos + 's;';
+                rule += prefixes[pre] + 'animation-timing-function: steps(' +options.grainSpeed + ', end);';
             }
         }
 
