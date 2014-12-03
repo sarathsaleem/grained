@@ -1,9 +1,20 @@
 $(document).ready(function () {
+
     $(".main").onepage_scroll({
         sectionContainer: "section",
         responsiveFallback: 600,
-        loop: true
+        loop: true,
+        updateURL: false
     });
+
+    $('.more_on').on('click', function () {
+        $(".main").moveTo(3);
+    });
+    $('.generate-btn').on('click', function () {
+        $(".main").moveTo(2);
+    });
+
+
 
     var element = '#page1';
     var options = {
@@ -86,15 +97,21 @@ $(document).ready(function () {
 
     $('.patterns li').on('click', function () {
         var color = window.getComputedStyle(this).getPropertyValue('background-color'),
-            image = window.getComputedStyle(this, ':before' ).getPropertyValue('background-image');
+            image = window.getComputedStyle(this, ':before').getPropertyValue('background-image');
         getPngImage(color, image);
     });
 
+     $('.getMytexture').on('click', function () {
+         var color = window.getComputedStyle($("#customGraindent")[0]).getPropertyValue('background-color'),
+         image = window.getComputedStyle($("#customGraindent")[0], ':before').getPropertyValue('background-image');
+         getPngImage(color, image);
+     });
+    
 
 });
 
 function heightCorrect() {
-    $('.sessionOne').height(window.innerHeight - 200);
+    $('.sessionOne').height(window.innerHeight - 250);
 }
 
 if (window.exports) {
@@ -147,6 +164,29 @@ function demos() {
         "grainHeight": 5.07
     };
     grained("#filim", options);
+    
+    options = {
+      "animate": true,
+      "patternWidth": 100,
+      "patternHeight": 100,
+      "grainOpacity": 0.34,
+      "grainDensity": 6.95,
+      "grainWidth": 2.69,
+      "grainHeight": 6.36
+    }
+    grained("#rain", options);
+    options = {
+      "animate": true,
+      "patternWidth": 100,
+      "patternHeight": 100,
+      "grainOpacity": 0.08,
+      "grainDensity": 1.3,
+      "grainWidth": 1.4,
+      "grainHeight": 1.2
+    }
+    grained("#sky", options);
+
+
 
 
 
@@ -160,10 +200,10 @@ var getPngImage = function (color, imageSrc) {
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, 150, 150);
     var image = new Image();
-    image.src = imageSrc.slice(4,-1);
+    image.src = imageSrc.slice(4, -1);
     image.onload = function () {
-        ctx.drawImage(image,0,0);
+        ctx.drawImage(image, 0, 0);
         var img = canvas.toDataURL('image/png');
-        window.open(canvas.toDataURL('image/png'),'_blank');
+        window.open(canvas.toDataURL('image/png'), '_blank');
     };
 };

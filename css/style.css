@@ -37,7 +37,7 @@ html {
 }
 h1 {
     color: #000;
-    margin: 30px 0;
+    margin: 0 0 30px 0;
     font-size: 26px;
     padding: 0px;
 }
@@ -61,6 +61,9 @@ ul{
     clear: both;
     display: block;
 }
+h2 a{
+    text-decoration: none;
+}
 .patterns li {
     width: 150px;
     height: 150px;
@@ -68,6 +71,7 @@ ul{
     margin: 5px;
     float: left;
     position: relative;
+    cursor: pointer;
 }
 .patterns li span{
     background: rgba(3, 0, 0, 0.78);
@@ -90,8 +94,7 @@ ul{
 .generate{
     margin: 30px 0;
 }
-.generate-btn {
-
+.generate-btn,.getMytexture {
     font-weight: bold;
     padding: 20px;
     box-shadow:inset 0px 1px 0px 0px #d197fe;
@@ -112,9 +115,45 @@ ul{
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#7c16cb', endColorstr='#a53df6');
     background-color:#7c16cb;
 }
+
+.getMytexture {
+    font-weight: bold;
+    padding: 8px 3px;
+    margin: 0 7px;
+    box-shadow: inset 0px 1px 0px 0px #573A00;
+    background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #9E6A05), color-stop(1, #774F00) );
+    background: -moz-linear-gradient( center top, #9E6A05 5%, #774F00 100% );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9E6A05', endColorstr='#774F00');
+    background-color: #6E4900;
+    border-radius: 6px;
+    border: 1px solid #905F00;
+    color: #FFFFFF;
+    text-decoration: none;
+    text-align: center;
+    text-shadow: 1px 1px 5px #000000;
+    width: 178px;
+    font-size: 13px;
+    display: inline-block;
+    cursor: pointer;
+}
+.getMytexture:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #774F00), color-stop(1, #9E6A05) );
+    background:-moz-linear-gradient( center top, #774F00 5%, #9E6A05 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#774F00', endColorstr='#9E6A05');
+    background-color:#CF8900;
+}
+
 .generate-btn:active {
     position:relative;
     top:1px;
+}
+.page1 .more_on {
+    color: #995B14
+}
+.more_on {
+    color: #FFDF00;
+    font-weight: bold;
+    cursor: pointer;
 }
 .page_container {
     position: relative;
@@ -159,7 +198,7 @@ ul{
 #optionWrapper{
     background:#b97a00;
     height: 300px;
-    width: 32%;
+    width: 30%;
     padding: 20px 0;
     float: left;
     overflow: hidden;
@@ -167,14 +206,14 @@ ul{
 .custom-gen {
     background:#cf8900;
     height: 300px;
-    width: 32%;
+    width: 35%;
     padding: 20px 0;
     float: left;
     overflow: hidden;
 }
 .getCode {
     float: left;
-    width: 32%;
+    width: 35%;
     height: 300px;
     background: #B37700;
     padding: 20px 0;
@@ -229,6 +268,33 @@ ul{
     display: block;
     clear: both;
 }
+
+.download_png {
+    padding: 10px;
+    background: #A16B00;
+    color: #fff;
+    font-size: 15px;
+    clear: both;
+}
+.myInfo {
+    padding: 11px;
+    color: #FFAC00;
+    max-width: 900px;
+    text-align: right;
+}
+.myInfo a{
+    text-decoration: none;
+    color: #FFAC00;
+}
+.git_info {
+    max-width: 900px;
+    text-align: right;
+}
+.git_info a {
+    font-size: 15px;
+    color: #FFAC00;
+}
+
 #tv{
     background: #FFF;
 }
@@ -241,4 +307,88 @@ ul{
 #filim{
     background: #000;
 }
+#rain{
+    background: #005ef5;
+}
+#sky{
+    background: rgb(0, 191, 254);
+}
 
+.git-icon {
+  animation: gitRoll ease 4s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 50%;
+  -webkit-animation: gitRoll ease 4s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-animation: gitRoll ease 4s;
+  -moz-animation-iteration-count: infinite;
+  -moz-transform-origin: 50% 50%;
+  -o-animation: gitRoll ease 4s;
+  -o-animation-iteration-count: infinite;
+  -o-transform-origin: 50% 50%;
+  -ms-animation: gitRoll ease 4s;
+  -ms-animation-iteration-count: infinite;
+  -ms-transform-origin: 50% 50%;
+}
+
+@keyframes gitRoll{
+  0% {
+    transform: rotate(0deg) ;
+  }
+  50% {
+    transform: rotate(360deg) ;
+  }
+  100% {
+    transform:  rotate(0deg) ;
+  }
+}
+
+@-webkit-keyframes gitRoll {
+  0% {
+    -webkit-transform:  rotate(0deg) ;
+  }
+  50% {
+    -webkit-transform:  rotate(360deg) ;
+  }
+  100% {
+    -webkit-transform:   rotate(0deg) ;
+  }
+}
+
+@-moz-keyframes gitRoll{
+  0% {
+    -moz-transform:   rotate(0deg) ;
+  }
+  50% {
+     -moz-transform:  translate(-200px,0px)  rotate(0deg) ;
+  }
+  100% {
+    -moz-transform:  translate(200px,0px)  rotate(180deg) ;
+  }
+}
+
+
+@-o-keyframes gitRoll {
+  0% {
+    -o-transform: rotate(0deg) ;
+  }
+  50% {
+    -o-transform: rotate(360deg) ;
+  }
+  100% {
+    -o-transform:  rotate(0deg) ;
+  }
+}
+
+@-ms-keyframes gitRoll {
+  0% {
+    -ms-transform:  rotate(0deg);
+  }
+  50% {
+    -ms-transform:  rotate(360deg);
+  }
+  100% {
+    -ms-transform:  rotate(0deg);
+  }
+}
