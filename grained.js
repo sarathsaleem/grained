@@ -25,11 +25,13 @@ grained
         }
 
         //set style for parent
-        element.style.position = 'relative';
+        if (element.style.position !== 'absolute') {
+            element.style.position = 'relative';
+        }
         element.style.overflow = 'hidden';
 
-        var prefixes = ["", "-moz-", "-o-animation-", "-webkit-","-ms-"];
-        
+        var prefixes = ["", "-moz-", "-o-animation-", "-webkit-", "-ms-"];
+
         //default option values
         var options = {
             animate: true,
@@ -39,17 +41,14 @@ grained
             grainDensity: 1,
             grainWidth: 1,
             grainHeight: 1,
-            grainChaos: 5,
-            grainSpeed: 10
+            grainChaos: 0.5,
+            grainSpeed: 20
 
         };
 
         Object.keys(opt).forEach(function (key) {
             options[key] = opt[key];
         });
-
-        //selecter element to add grains        
-        selectorElement = '#' + elementId + '::after';
 
 
         var generateNoise = function () {
@@ -86,29 +85,28 @@ grained
         var noise = generateNoise();
 
         var animation = '',
-            keyFrames = ['0%:0%,0%','10%:-10%,10%','20%:10%,-10%','30%:-30%,30%','40%::-20%,20%','50%:15%,0%','60%:20%,-20%','70%:-5%,20%','80%:10%,-10%','90%:-30%,10%','100%:0%,0%'];
+            keyFrames = ['0%:-10%,10%', '10%:-25%,0%', '20%:-30%,10%', '30%:-30%,30%', '40%::-20%,20%', '50%:-15%,10%', '60%:-20%,20%', '70%:-5%,20%', '80%:-25%,5%', '90%:-30%,25%', '100%:-10%,10%'];
 
         var pre = prefixes.length;
         while (pre--) {
             animation += '@' + prefixes[pre] + 'keyframes grained{';
-            for(var key = 0;key < keyFrames.length;key++) {
+            for (var key = 0; key < keyFrames.length; key++) {
                 var keyVal = keyFrames[key].split(':');
-                animation += keyVal[0]+'{';               
-                animation += prefixes[pre] +'transform:translate('+keyVal[1]+');';                
+                animation += keyVal[0] + '{';
+                animation += prefixes[pre] + 'transform:translate(' + keyVal[1] + ');';
                 animation += '}';
             }
             animation += '}';
         }
 
-        console.log(animation);
-        var styleAdded = doc.getElementById('grained-animation');
+        var styleAdded = doc.getElementById('grained-animation-' + elementId);
         if (styleAdded) {
             styleAdded.parentElement.removeChild(styleAdded);
         }
 
         var style = doc.createElement("style");
         style.type = "text/css";
-        style.id = 'grained-animation';
+        style.id = 'grained-animation-' + elementId;
         if (options.animate) {
             style.innerHTML = animation;
         } else {
@@ -117,14 +115,25 @@ grained
         doc.body.appendChild(style);
 
         var rule = 'background-image: url(' + noise + ');';
-        rule += 'display: block;position: absolute;content: "";height: 300%;width: 300%;left: -100%;top: -100%;z-index: 1;';
+        rule += 'position: absolute;content: "";height: 300%;width: 300%;left: -100%;top: -100%;';
         pre = prefixes.length;
-        while (pre--) {
-            rule += prefixes[pre] + 'animation-name:grained;';
-            rule += prefixes[pre] + 'animation-iteration-count: infinite;';
-            rule += prefixes[pre] + 'animation-duration: ' + Math.round(options.grainChaos) + 's;';
-            rule += prefixes[pre] + 'animation-timing-function: steps(' + Math.round(options.grainSpeed) + ', end);';
+        if (options.animate) {
+            while (pre--) {
+                rule += prefixes[pre] + 'animation-name:grained;';
+                rule += prefixes[pre] + 'animation-iteration-count: infinite;';
+                rule += prefixes[pre] + 'animation-duration: ' + options.grainChaos + 's;';
+                rule += prefixes[pre] + 'animation-timing-function: steps(' +options.grainSpeed + ', end);';
+            }
         }
+
+        var graine = document.createElement('div');
+        graine.setAttribute('class', 'grained');
+        // element.parentElement.removeChild()
+        // element.insertBefore(graine, element.firstChild);
+
+        //selecter element to add grains        
+        selectorElement = '#' + elementId + '::before';
+
 
         addCSSRule(style.sheet, selectorElement, rule);
 
