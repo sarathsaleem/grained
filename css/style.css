@@ -120,31 +120,6 @@ ul{
     position: relative;
 }
 
-#customGraindent {
-    width: 300px;
-    height: 300px;
-    background: #ccc;
-    float: left;
-}
-.dg.main {
-    float: left;
-    width: 300px !important;
-}
-.dg.main  .close-button {
-    width: 300px !important;
-}
-
-#customGraindent > * {
-    position: relative;
-}
-
-#customGraindent a {
-    color: #fff;
-    font-size: 13px;
-    padding: 10px;
-    text-decoration: none;
-    text-shadow: 1px 1px 2px #000;
-}
 .colorpicker {
     width: 130px;
 }
@@ -180,36 +155,70 @@ ul{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #673E01;
 }
+
 #optionWrapper{
     background:#b97a00;
     height: 300px;
-    width: 300px;
-    padding: 20px;
+    width: 32%;
+    padding: 20px 0;
     float: left;
+    overflow: hidden;
 }
 .custom-gen {
     background:#cf8900;
     height: 300px;
-    padding: 20px;
+    width: 32%;
+    padding: 20px 0;
     float: left;
+    overflow: hidden;
 }
 .getCode {
     float: left;
-    width: 300px;
+    width: 32%;
     height: 300px;
     background: #B37700;
-    padding: 20px;
+    padding: 20px 0;
+    overflow: hidden;
 }
 
 .getCode textarea {
     height: 280px;
-    width: 285px;
+    width: 80%;
     resize: none;
     background: #000000;
     border: none;
     padding: 10px;
     color: #CACACA;
+    margin: 0 auto;
+    display: block;
 }
+.dg.main {
+    width: 80% !important;
+    margin: 0 auto;
+}
+.dg.main .close-button {
+    display: none;
+}
+#customGraindent {
+    width: 80%;
+    height: 300px;
+    background: #ccc;
+    margin: 0 auto;
+}
+
+
+#customGraindent > * {
+    position: relative;
+}
+
+#customGraindent a {
+    color: #fff;
+    font-size: 13px;
+    padding: 10px;
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #000;
+}
+
 .generete {
     width: 80%;
     max-width: 1021px;
