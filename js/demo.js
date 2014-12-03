@@ -70,7 +70,7 @@ $(document).ready(function () {
     customize.add(custOption, 'grainWidth', 1, 10).onChange(addGrain);
     customize.add(custOption, 'grainHeight', 1, 10).onChange(addGrain);
     customize.open();
-    $('.custom-gen')[0].appendChild(gui.domElement);
+    $('#optionWrapper').append(gui.domElement);
 
     var bodyStyle = $('#customGraindent')[0].style;
     $('#demo_apidemo').colorpicker({
@@ -83,11 +83,20 @@ $(document).ready(function () {
 
     demos();
 
+
+    $('.patterns li').on('click', function () {
+        var color = window.getComputedStyle(this).getPropertyValue('background-color'),
+            image = window.getComputedStyle(this, ':before' ).getPropertyValue('background-image');
+        getPngImage(color, image);
+    });
+
+
 });
 
 function heightCorrect() {
     $('.sessionOne').height(window.innerHeight - 200);
 }
+
 if (window.exports) {
     window.exports.heightCorrect = heightCorrect;
 } else {
@@ -97,7 +106,6 @@ if (window.exports) {
 
 function demos() {
 
-
     var options = {
         "animate": true,
         "patternWidth": 100,
@@ -106,7 +114,7 @@ function demos() {
         "grainDensity": 1.99,
         "grainWidth": 2.39,
         "grainHeight": 2.49
-    }
+    };
     grained("#tv", options);
 
     options = {
@@ -117,7 +125,7 @@ function demos() {
         "grainDensity": 1.99,
         "grainWidth": 1.79,
         "grainHeight": 3.28
-    }
+    };
     grained("#grass", options);
     options = {
         "animate": true,
@@ -127,7 +135,7 @@ function demos() {
         "grainDensity": 2.49,
         "grainWidth": 2.69,
         "grainHeight": 2.19
-    }
+    };
     grained("#wood", options);
     options = {
         "animate": true,
@@ -137,8 +145,25 @@ function demos() {
         "grainDensity": 2.09,
         "grainWidth": 7.85,
         "grainHeight": 5.07
-    }
+    };
     grained("#filim", options);
 
 
+
 }
+
+var getPngImage = function (color, imageSrc) {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = 100;
+    canvas.height = 100;
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 150, 150);
+    var image = new Image();
+    image.src = imageSrc.slice(4,-1);
+    image.onload = function () {
+        ctx.drawImage(image,0,0);
+        var img = canvas.toDataURL('image/png');
+        window.open(canvas.toDataURL('image/png'),'_blank');
+    };
+};

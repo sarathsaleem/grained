@@ -125,10 +125,13 @@ ul{
     height: 300px;
     background: #ccc;
     float: left;
-    margin: 0 20px;
 }
 .dg.main {
     float: left;
+    width: 300px !important;
+}
+.dg.main  .close-button {
+    width: 300px !important;
 }
 
 #customGraindent > * {
@@ -177,11 +180,17 @@ ul{
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
     background-color: #673E01;
 }
+#optionWrapper{
+    background:#b97a00;
+    height: 300px;
+    width: 300px;
+    padding: 20px;
+    float: left;
+}
 .custom-gen {
     background:#cf8900;
     height: 300px;
     padding: 20px;
-    width: 603px;
     float: left;
 }
 .getCode {
@@ -193,11 +202,24 @@ ul{
 }
 
 .getCode textarea {
-    height: 290px;
-    width: 295px;
+    height: 280px;
+    width: 285px;
     resize: none;
+    background: #000000;
+    border: none;
+    padding: 10px;
+    color: #CACACA;
 }
-
+.generete {
+    width: 80%;
+    max-width: 1021px;
+    min-width: 600px;
+}
+.generete:after{
+    content: '';
+    display: block;
+    clear: both;
+}
 #tv{
     background: #FFF;
 }
@@ -210,3 +232,4 @@ ul{
 #filim{
     background: #000;
 }
+
