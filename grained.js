@@ -99,19 +99,26 @@ grained
             animation += '}';
         }
 
+        //add animation keyframe
+        var animationAdded = doc.getElementById('grained-animation');
+        if (animationAdded) {
+            animationAdded.parentElement.removeChild(animationAdded);
+        }
+        var style = doc.createElement("style");
+        style.type = "text/css";
+        style.id = 'grained-animation';
+        style.innerHTML = animation;
+        doc.body.appendChild(style);
+
+        //add custimozed style
         var styleAdded = doc.getElementById('grained-animation-' + elementId);
         if (styleAdded) {
             styleAdded.parentElement.removeChild(styleAdded);
         }
 
-        var style = doc.createElement("style");
+        style = doc.createElement("style");
         style.type = "text/css";
         style.id = 'grained-animation-' + elementId;
-        if (options.animate) {
-            style.innerHTML = animation;
-        } else {
-            style.innerHTML = '';
-        }
         doc.body.appendChild(style);
 
         var rule = 'background-image: url(' + noise + ');';
@@ -126,12 +133,7 @@ grained
             }
         }
 
-        var graine = document.createElement('div');
-        graine.setAttribute('class', 'grained');
-        // element.parentElement.removeChild()
-        // element.insertBefore(graine, element.firstChild);
-
-        //selecter element to add grains        
+        //selecter element to add grains
         selectorElement = '#' + elementId + '::before';
 
 
