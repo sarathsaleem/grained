@@ -15,7 +15,6 @@ $(document).ready(function () {
     });
 
 
-
     var element = '#page1';
     var options = {
         animate: true, //default true
@@ -101,12 +100,12 @@ $(document).ready(function () {
         getPngImage(color, image);
     });
 
-     $('.getMytexture').on('click', function () {
-         var color = window.getComputedStyle($("#customGraindent")[0]).getPropertyValue('background-color'),
-         image = window.getComputedStyle($("#customGraindent")[0], ':before').getPropertyValue('background-image');
-         getPngImage(color, image);
-     });
-    
+    $('.getMytexture').on('click', function () {
+        var color = window.getComputedStyle($("#customGraindent")[0]).getPropertyValue('background-color'),
+            image = window.getComputedStyle($("#customGraindent")[0], ':before').getPropertyValue('background-image');
+        getPngImage(color, image);
+    });
+
 
 });
 
@@ -164,31 +163,27 @@ function demos() {
         "grainHeight": 5.07
     };
     grained("#filim", options);
-    
+
     options = {
-      "animate": true,
-      "patternWidth": 100,
-      "patternHeight": 100,
-      "grainOpacity": 0.34,
-      "grainDensity": 6.95,
-      "grainWidth": 2.69,
-      "grainHeight": 6.36
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.34,
+        "grainDensity": 6.95,
+        "grainWidth": 2.69,
+        "grainHeight": 6.36
     }
     grained("#rain", options);
     options = {
-      "animate": true,
-      "patternWidth": 100,
-      "patternHeight": 100,
-      "grainOpacity": 0.08,
-      "grainDensity": 1.3,
-      "grainWidth": 1.4,
-      "grainHeight": 1.2
+        "animate": true,
+        "patternWidth": 100,
+        "patternHeight": 100,
+        "grainOpacity": 0.08,
+        "grainDensity": 1.3,
+        "grainWidth": 1.4,
+        "grainHeight": 1.2
     }
     grained("#sky", options);
-
-
-
-
 
 }
 

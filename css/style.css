@@ -363,10 +363,10 @@ h2 a{
     -moz-transform:   rotate(0deg) ;
   }
   50% {
-     -moz-transform:  translate(-200px,0px)  rotate(0deg) ;
+     -moz-transform: rotate(360deg) ;
   }
   100% {
-    -moz-transform:  translate(200px,0px)  rotate(180deg) ;
+    -moz-transform:  rotate(0deg) ;
   }
 }
 
