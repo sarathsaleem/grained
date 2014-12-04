@@ -1,7 +1,8 @@
-/*
-
-grained
-
+/*! Grained.js
+* Author : Sarath Saleem  - https://github.com/sarathsaleem
+* MIT license: http://opensource.org/licenses/MIT
+* GitHub : https://github.com/sarathsaleem/grained
+* v0.0.1
 */
 (function (window, doc) {
 
