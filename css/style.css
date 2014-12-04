@@ -262,6 +262,8 @@ h2 a{
     width: 80%;
     max-width: 1021px;
     min-width: 600px;
+    background: #CF8900;
+    padding: 10px;
 }
 .generete:after{
     content: '';
