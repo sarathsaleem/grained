@@ -8,10 +8,18 @@ $(document).ready(function () {
     });
 
     $('.more_on').on('click', function () {
-        $(".main").moveTo(3);
+        if ($(".main").moveTo) {
+            $(".main").moveTo(3)
+        } else {
+             $("html, body").animate({ scrollTop: $('#page3').offset().top }, 1000);
+        }
     });
     $('.generate-btn').on('click', function () {
-        $(".main").moveTo(2);
+      if ($(".main").moveTo) {
+            $(".main").moveTo(2)
+        } else {
+            $("html, body").animate({ scrollTop: $('#page2').offset().top }, 1000);
+        }
     });
 
 

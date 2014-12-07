@@ -13,7 +13,7 @@ html {
 }
 #container {
     z-index: 1;
-    /*chrome bug to clip ::after http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti FF9B07*/
+    /*chrome bug to clip ::after http://stackoverflow.com/questions/20001515/chrome-bug-border-radius-not-clipping-contents-when-combined-with-css-transiti*/
 }
 .wrapper {
     height: 100% !important;
@@ -393,4 +393,15 @@ h2 a{
   100% {
     -ms-transform:  rotate(0deg);
   }
+}
+
+
+/* mobile theme fix */
+
+@media only screen and (max-width : 640px) {
+
+    body{
+        height: auto !important;
+        min-width: 652px;
+    }
 }
