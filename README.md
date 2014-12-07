@@ -57,4 +57,4 @@ With these options you can crate customized grained effect , these are the optio
              grainWidth: 1,
              grainHeight: 1
      };
-With animation true/false you can create textures with grain movement and a static one. The other value you can see the live in Create your own
+With animation true/false you can create textures with grain movement and a static one. The other value you can see the live in **[online generator](http://sarathsaleem.github.io/grained)**
