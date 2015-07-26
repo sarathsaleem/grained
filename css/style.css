@@ -64,6 +64,9 @@ ul{
 h2 a{
     text-decoration: none;
 }
+.page3 a {
+    color: #ffac00;
+}
 .patterns li {
     width: 150px;
     height: 150px;
