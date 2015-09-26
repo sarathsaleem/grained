@@ -33,7 +33,7 @@ So the ideal structure of implementaion is like follows
          your contents goes here .. like <a>, <p> etc
        </div>
     </div>
-after initilizing  `grained('#contaoner', {});` it will look like this
+after initilizing  `grained('#container', {});` it will look like this
 
 
     <div id="container">
