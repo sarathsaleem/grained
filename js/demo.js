@@ -70,7 +70,7 @@ $(document).ready(function () {
         });
 
         var text = 'var options = ' + JSON.stringify(custOption, null, 2);
-        text += '\ngrained("#elemntId", options);\n\n/*\nbackground-color :' + $("#customGraindent").css('backgroundColor') + '\n*/';
+        text += '\ngrained("#elementId", options);\n\n/*\nbackground-color :' + $("#customGraindent").css('backgroundColor') + '\n*/';
         $('.getCode textarea').text(text);
     }
     addGrain();
