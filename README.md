@@ -63,3 +63,12 @@ With these options you can crate customized grained effect , these are the optio
              grainHeight: 1
      };
 ```
+Developing
+-------
+
+Run this commands and you will be good to go:
+
+```shell
+    > npm install
+    > npm run dev
+```
