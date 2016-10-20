@@ -1,0 +1,31 @@
+{
+  "name": "grained",
+  "version": "1.0.0",
+  "description": "Javascript that customize noise effect",
+  "main": "grained.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "grunt babel",
+    "dev": "grunt babel && grunt watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/r7com/grained.git"
+  },
+  "keywords": [
+    "grain"
+  ],
+  "author": "sarathsaleem",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/r7com/grained/issues"
+  },
+  "homepage": "https://github.com/r7com/grained#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.16.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^6.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
