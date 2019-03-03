@@ -1,3 +1,5 @@
+'use strict';
+
 /*! Grained.js
 * Author : Sarath Saleem  - https://github.com/sarathsaleem
 * MIT license: http://opensource.org/licenses/MIT
@@ -10,26 +12,17 @@
 
     function grained(ele, opt) {
 
-        var element = null,
-            elementId = null,
+        if (typeof ele !== 'Object') throw new Error('First parameter must be an element object');
+
+        var element = ele,
+            eStyle = element.style,
+            hashGrain = Date.now() + '-grain',
             selectorElement = null;
 
-        if (typeof ele === 'string') {
-            element = doc.getElementById(ele.split('#')[1]);
-        }
+        // Set style for parent
+        if (eStyle.position !== 'absolute') eStyle.position = 'relative';
 
-        if (!element) {
-            console.error('Grained: cannot find the element with id ' + ele);
-            return;
-        } else {
-            elementId = element.id;
-        }
-
-        //set style for parent
-        if (element.style.position !== 'absolute') {
-            element.style.position = 'relative';
-        }
-        element.style.overflow = 'hidden';
+        eStyle.overflow = 'hidden';
 
         var prefixes = ["", "-moz-", "-o-animation-", "-webkit-", "-ms-"];
 
@@ -51,8 +44,7 @@
             options[key] = opt[key];
         });
 
-
-        var generateNoise = function () {
+        var generateNoise = function generateNoise() {
             var canvas = doc.createElement('canvas');
             var ctx = canvas.getContext('2d');
             canvas.width = options.patternWidth;
@@ -68,12 +60,7 @@
         };
 
         function addCSSRule(sheet, selector, rules, index) {
-            var ins = '';
-            if (selector.length) {
-                ins = selector + "{" + rules + "}";
-            } else {
-                ins = rules;
-            }
+            var ins = selector.length ? selector + '{' + rules + '}' : rules;
 
             if ("insertRule" in sheet) {
                 sheet.insertRule(ins, index);
@@ -81,7 +68,6 @@
                 sheet.addRule(selector, rules, index);
             }
         }
-
 
         var noise = generateNoise();
 
@@ -112,14 +98,14 @@
         doc.body.appendChild(style);
 
         //add custimozed style
-        var styleAdded = doc.getElementById('grained-animation-' + elementId);
+        var styleAdded = doc.getElementById('grained-animation-' + hashGrain);
         if (styleAdded) {
             styleAdded.parentElement.removeChild(styleAdded);
         }
 
         style = doc.createElement("style");
         style.type = "text/css";
-        style.id = 'grained-animation-' + elementId;
+        style.id = 'grained-animation-' + hashGrain;
         doc.body.appendChild(style);
 
         var rule = 'background-image: url(' + noise + ');';
@@ -130,19 +116,16 @@
                 rule += prefixes[pre] + 'animation-name:grained;';
                 rule += prefixes[pre] + 'animation-iteration-count: infinite;';
                 rule += prefixes[pre] + 'animation-duration: ' + options.grainChaos + 's;';
-                rule += prefixes[pre] + 'animation-timing-function: steps(' +options.grainSpeed + ', end);';
+                rule += prefixes[pre] + 'animation-timing-function: steps(' + options.grainSpeed + ', end);';
             }
         }
 
         //selecter element to add grains
-        selectorElement = '#' + elementId + '::before';
-
+        selectorElement = '#' + hashGrain + '::before';
 
         addCSSRule(style.sheet, selectorElement, rule);
-
-
     }
 
     window.grained = grained;
-    //END
 })(window, document);
+//# sourceMappingURL=grained.js.map

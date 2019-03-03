@@ -13,41 +13,46 @@ How to use
 ------------
 
 Include the library file in your html page.
-
+```html
     <script src="grained.js"></script>
-
+```
 initialize the library by
+```javascript
+    var element = document.querySelector('.grained-element')
 
-    grained('elementId',options)
+    grained(element, options)
+```
 
-*`'elementId'`* is the id of the container element to add the grain effect.  It is important to note that grainedjs will not change the background of the container element. It appends a div element as the first child of the container. Grainedjs will add two style changes to the container element *`'position:relative;overflow:hidden'.`* If the container position is absolute it will remand as absolute only.
+*`'element'`* is the container element to add the grain effect.  It is important to note that grainedjs will not change the background of the container element. It appends a div element as the first child of the container. Grainedjs will add two style changes to the container element *`'position:relative;overflow:hidden'.`* If the container position is absolute it will remand as absolute only.
 
 Since a `'div'` element with class `'grained'` is added as first child element with position absolute it will have the z index priority and appears on top of other contents in the container element. If you want the other elements in container element on top of grained effect you have to  add a css like
 
 *`#container > * { position:relative; }`*
 
 So the ideal structure of implementaion is like follows
-
+```html
     <div id="container">
        <div class="contents">
          your contents goes here .. like <a>, <p> etc
        </div>
     </div>
-after initilizing  `grained('#container', {});` it will look like this
+```
+after initilizing  `grained(document.querySelector('#container'), {});` it will look like this
 
-
+```html
     <div id="container">
         <div class='grained'></div>
         <div class="contents">
             your contents goes here .. like <a>, <p> etc
         </div>
     </div>
+```
 
 Options
 -------
 
 With these options you can crate customized grained effect , these are the option parameter you can change and the default values.
-
+```javascript
      var options = {
              animate: true,
              patternWidth: 100,
@@ -57,4 +62,13 @@ With these options you can crate customized grained effect , these are the optio
              grainWidth: 1,
              grainHeight: 1
      };
-With animation true/false you can create textures with grain movement and a static one. The other value you can see the live in **[online generator](http://sarathsaleem.github.io/grained)**
+```
+Developing
+-------
+
+Run this commands and you will be good to go:
+
+```shell
+    > npm install
+    > npm run dev
+```
