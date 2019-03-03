@@ -22,7 +22,7 @@ initialize the library by
 
 *`'elementId'`* is the id of the container element to add the grain effect.  It is important to note that grainedjs will not change the background of the container element. It appends a div element as the first child of the container. Grainedjs will add two style changes to the container element *`'position:relative;overflow:hidden'.`* If the container position is absolute it will remand as absolute only.
 
-Since a `'div'` element with class `'grained'` is added as first child element with position absolute it will have the the z index priority and appears on top of other contents in the container element. If you want the other elements in container element on top of grained effect you have to  add a css like
+Since a `'div'` element with class `'grained'` is added as first child element with position absolute it will have the z index priority and appears on top of other contents in the container element. If you want the other elements in container element on top of grained effect you have to  add a css like
 
 *`#container > * { position:relative; }`*
 
