@@ -170,7 +170,7 @@ h2 a{
     margin: 20px 0;
 }
 .sessionOne pre.prettyprint {
-    width: 400px;
+    width: 500px;
     margin: 0px;
 }
 .sessionOne pre{
@@ -181,6 +181,7 @@ h2 a{
     box-shadow: inset 0px -8px 20px #744501;
     padding: 10px;
     max-width: 900px;
+    height:700px;
 }
 
 ::-webkit-scrollbar-track {
