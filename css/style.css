@@ -34,6 +34,7 @@ html {
 }
 .page_container {
     padding: 5%;
+    height:100%;
 }
 h1 {
     color: #000;
